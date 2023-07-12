@@ -14,4 +14,4 @@ WORKDIR ./
 
 RUN pip install git+https://github.com/openai/whisper.git
 
-CMD python3 main.py
+CMD python3 api.py
