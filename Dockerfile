@@ -1,10 +1,7 @@
-FROM debian:latest
+FROM ubuntu:20.04
 
-RUN apt update && apt upgrade -y
-
-RUN apt install git curl python3-pip ffmpeg -y
-
-RUN pip3 install -U pip
+RUN apt-get update && apt-get install python python3-pip -y
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg
 
 ADD ./ ./
 
@@ -12,6 +9,6 @@ RUN pip install -r requirements.txt
 
 WORKDIR ./
 
-RUN pip install git+https://github.com/openai/whisper.git
+CMD ["uvicorn","api:app"]
 
-CMD python3 api.py
+EXPOSE 8000

@@ -4,3 +4,4 @@ python-multipart
 aiofiles
 setuptools-rust
 uuid
+openai-whisper
